@@ -1,10 +1,5 @@
 " gtags_cscope module for Gutentags
 
-if !has('cscope')
-    throw "Can't enable the gtags-cscope module for Gutentags, "
-                \"this Vim has no support for cscope files."
-endif
-
 " Global Options {{{
 
 if !exists('g:gutentags_gtags_executable')
@@ -61,8 +56,6 @@ function! gutentags#gtags_cscope#init(project_root) abort
     endif
 
     let b:gutentags_files['gtags_cscope'] = l:db_file
-
-    execute 'set cscopeprg=' . fnameescape(g:gutentags_gtags_cscope_executable)
 
     " The combination of gtags-cscope, vim's cscope and global files is
     " a bit flaky. Environment variables are safer than vim passing
